@@ -1,0 +1,93 @@
+name: COMPILAR APK MINERADOR FALHA V1.4
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v6
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Configurar Gradle 8.9
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: "8.9"
+
+      - name: Conferir estrutura
+        shell: bash
+        run: |
+          echo "=========================================="
+          echo "MINERADOR LOTOFACIL - FALHA V1.4"
+          echo "3 MODULOS + PERIMETRO"
+          echo "=========================================="
+
+          pwd
+          ls -la
+
+          test -f settings.gradle.kts
+          test -f build.gradle.kts
+          test -f app/build.gradle.kts
+          test -f app/src/main/AndroidManifest.xml
+
+          echo "ESTRUTURA OK"
+
+      - name: Mostrar versoes
+        shell: bash
+        run: |
+          java -version
+          gradle --version
+
+      - name: Limpar compilacao anterior
+        shell: bash
+        run: |
+          gradle --stop || true
+          rm -rf app/build
+          rm -rf .gradle
+
+      - name: Compilar APK
+        shell: bash
+        run: |
+          gradle --no-daemon :app:assembleDebug --stacktrace
+
+      - name: Conferir APK
+        shell: bash
+        run: |
+          echo "=========================================="
+          echo "APK GERADO"
+          echo "=========================================="
+
+          find app/build/outputs -type f -name "*.apk" -print
+
+          APK=$(find app/build/outputs/apk/debug -type f -name "*.apk" | head -1)
+
+          if [ -z "$APK" ]; then
+            echo "ERRO: APK NAO FOI ENCONTRADO"
+            exit 1
+          fi
+
+          mkdir -p apk-final
+
+          cp "$APK" \
+          apk-final/MINERADOR-LOTOFACIL-FALHA-V1.4-PERIMETRO.apk
+
+          ls -lh apk-final/
+
+      - name: Salvar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: MINERADOR-LOTOFACIL-FALHA-V1.4-PERIMETRO
+          path: apk-final/MINERADOR-LOTOFACIL-FALHA-V1.4-PERIMETRO.apk
+          if-no-files-found: error
+          retention-days: 30

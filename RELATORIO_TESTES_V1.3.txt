@@ -1,0 +1,23 @@
+MINERADOR LOTOFÁCIL — DUPLAS DE FALHA V1.3
+
+JAVAC: OK
+BLACKTEST: OK
+
+BLACKTEST_V13_OK
+U8=772200
+U9=1051050
+U10=756756
+EVOLUTION_SCORE=32629.200000000004
+
+CHECKS:
+- M1: OK
+- M2: OK
+- M3: OK
+- U8: OK
+- U9: OK
+- U10: OK
+- 3 PDFs: OK
+- Reset: OK
+- Sem workflow: OK
+
+APK Android final deve ser compilado pelo GitHub Actions.

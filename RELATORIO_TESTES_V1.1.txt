@@ -1,0 +1,19 @@
+MINERADOR LOTOFÁCIL — DUPLAS DE FALHA V1.1
+
+JAVAC: OK
+BLACKTEST: OK
+
+BLACKTEST_V11_OK
+C25_2=300 C10_2=45
+REPETIDAS_TESTE=9
+Repetidas=9 | Soma=120 (média 181.1) | Pares=7 (média 7.3) | Primos=6 (média 5.6) | Fibonacci=6 (média 4.8) | Miolo=6 (média 5.0) | Cruz=7 (média 5.3) | Borda=9 (média 10.0)
+
+CHECKS:
+- JAVAC: OK
+- BLACKTEST: OK
+- Filtro 8/9/10: OK
+- Padrões históricos: OK
+- PDF vermelho: OK
+- Sem workflow: OK
+
+APK Android final será compilado no GitHub Actions.

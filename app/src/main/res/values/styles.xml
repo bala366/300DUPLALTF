@@ -1,0 +1,1 @@
+<resources><style name="Theme.DuplasFalha" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:statusBarColor">#5B247A</item><item name="android:navigationBarColor">#FFFFFF</item><item name="android:colorAccent">#8E44AD</item></style></resources>

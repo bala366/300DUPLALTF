@@ -1,0 +1,24 @@
+MINERADOR LOTOFÁCIL — DUPLAS DE FALHA V1.2
+
+JAVAC CORE + BLACKTEST: OK
+
+BLACKTEST_V12_OK
+C25_2=300
+C10_2=45
+FAILURE_TABLE=25
+TREND=10
+REPETIDAS_TESTE=9
+
+CHECKS ESTRUTURAIS:
+- Módulo 1: OK
+- Módulo 2: OK
+- 300 duplas: OK
+- 45 duplas reais: OK
+- Tendência repetidas: OK
+- Tabela falha: OK
+- Filtro 8/9/10: OK
+- Reset novo TXT: OK
+- PDF vermelho: OK
+- Sem workflow: OK
+
+Observação: o motor Java e a estrutura foram validados. O APK Android final deve ser compilado no GitHub Actions.

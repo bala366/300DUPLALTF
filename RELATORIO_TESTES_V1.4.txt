@@ -1,0 +1,24 @@
+MINERADOR LOTOFÁCIL — DUPLAS DE FALHA V1.4
+
+JAVAC: OK
+BLACKTEST: OK
+
+BLACKTEST_V14_OK
+U8=772200 U9=1051050 U10=756756
+PERIMETER_LEN=10
+PERIMETER_MAX=15
+PERIMETER_SCORE=-276.3201076711043
+Perímetro últimos 10: 8 8 10 8 11 9 8 10 5 15 | Média=9.20 | Mín=5 | Máx=15 | >=12=1 | >=13=1 | >=14=1 | média histórica=8.76
+
+CHECKS:
+- M1: OK
+- M2: OK
+- M3: OK
+- Perímetro aprendido: OK
+- Perímetro filtro: OK
+- Perímetro M3: OK
+- Reset novo TXT: OK
+- PDF visual: OK
+- Sem workflow: OK
+
+APK Android final deve ser compilado no GitHub Actions.

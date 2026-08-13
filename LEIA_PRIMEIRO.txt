@@ -1,0 +1,83 @@
+MINERADOR LOTOFÁCIL — DUPLAS DE FALHA — V1.2
+
+APLICATIVO INDEPENDENTE
+applicationId: br.com.mineradorlf.duplasfalha
+versionCode: 3
+versionName: 1.2.0
+
+FUNCIONAMENTO AO CARREGAR TXT
+- reseta completamente a análise anterior;
+- limpa resultado anterior, PDF anterior, barra, relógio e tendência;
+- carrega o novo histórico;
+- calcula imediatamente a tendência da quantidade de repetidas;
+- habilita a Tabela de Frequência de Falha;
+- deixa Módulo 1 e Módulo 2 prontos para nova execução.
+
+TENDÊNCIA DE REPETIDAS
+- mede a quantidade repetida entre concursos consecutivos;
+- usa o último movimento como estado de origem;
+- conta transições, por exemplo 10→10, 10→9, 10→8;
+- usa histórico total + últimos 100 + últimos 50 + últimos 20;
+- sugere 8, 9 ou 10 repetidas;
+- a sugestão recebe prioridade no score, mas o filtro rígido continua aceitando somente 8/9/10.
+
+TABELA DE FREQUÊNCIA DE FALHA
+Para cada dezena 01–25:
+- falha atual;
+- número de falhas nos últimos 20;
+- percentual de falha nos últimos 20;
+- maior sequência de falha nos últimos 20;
+- média das sequências de falha nos últimos 20;
+- total de falhas no histórico;
+- percentual histórico de falha;
+- maior sequência histórica de falha;
+- média histórica das sequências de falha.
+Essa tabela entra no score dos módulos.
+
+MÓDULO 1 — 300 DUPLAS DO UNIVERSO
+- C(25,2)=300;
+- por concurso: 2 falharam=100, 1 falhou=50, nenhuma=0;
+- ranking histórico e recente;
+- movimento penúltimo→último;
+- cruza com frequência de falha individual;
+- projeta 10 falhas.
+
+MÓDULO 2 — DUPLAS REAIS DAS 10 FALHAS
+- em cada concurso, pega somente as 10 falhas;
+- gera C(10,2)=45 duplas;
+- acumula frequência, últimos 20 e últimos 6;
+- cruza com frequência de falha individual;
+- projeta 10 falhas.
+
+FILTRO FINAL OBRIGATÓRIO
+- somente 8, 9 ou 10 repetidas do último resultado;
+- jogo que já fez 15 pontos é descartado;
+- padrão aprendido do histórico: soma, pares, primos, Fibonacci, miolo, cruz, borda, linhas e colunas.
+
+PDF DOS DOIS MÓDULOS
+- volante 01–25;
+- 10 falhas marcadas em vermelho;
+- 15 dezenas do jogo em branco;
+- páginas seguintes com tendência, padrões, ranking e justificativa.
+
+O ZIP NÃO CONTÉM WORKFLOW.
+
+
+V1.3 — MÓDULO 3
+- Universo 8 repetidas: 772.200 jogos brutos.
+- Universo 9 repetidas: 1.051.050 jogos brutos.
+- Universo 10 repetidas: 756.756 jogos brutos.
+- O motor percorre cada universo separadamente.
+- Descarta jogos fora do padrão histórico.
+- Mede a evolução da falha de 10 em cada candidato.
+- Seleciona uma falha vencedora para 8, uma para 9 e uma para 10 repetidas.
+- Gera 3 PDFs separados, cada um com falhas vermelhas e jogo branco.
+
+
+V1.4 — PERÍMETRO DE PONTUAÇÃO
+- aprende no próprio TXT o comportamento dos resultados reais contra os 10 concursos anteriores;
+- mede sequência de pontos, média, desvio, mínimo, máximo, 12+, 13+, 14+, subidas e quedas;
+- não proíbe 14 por regra fixa: rejeita apenas perfis muito fora do comportamento histórico;
+- Módulos 1, 2 e 3 passam pelo filtro de perímetro;
+- Módulo 3 continua varrendo os universos 8/9/10, mas agora só concorre quem passa por:
+  falha + padrão estrutural + perímetro.
